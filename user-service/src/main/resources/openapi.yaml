@@ -1,0 +1,50 @@
+openapi: 3.0.3
+info:
+  title: User Service API
+  description: API para gestión de usuarios consumidos de fuentes externas.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Servidor de desarrollo local
+
+components:
+  securitySchemes:
+    # Cambiamos de ApiKeyAuth a BearerAuth
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    UserDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+
+paths:
+  /users:
+    get:
+      summary: Obtener lista de usuarios
+      description: Retorna la lista de usuarios sincronizados desde la API externa.
+      # Actualizamos la referencia de seguridad
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Operación exitosa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDTO'
+        '401':
+          description: No autorizado (Token JWT inválido o faltante)

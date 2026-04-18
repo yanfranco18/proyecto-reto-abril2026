@@ -1,0 +1,114 @@
+{
+  "info": {
+    "_postman_id": "1e26ce18-b21a-49fd-b257-ad8124fa9eec",
+    "name": "proyecto-money",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19442902"
+  },
+  "item": [
+    {
+      "name": "generate-token",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/auth/generate-token?username=admin",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "generate-token"
+          ],
+          "query": [
+            {
+              "key": "username",
+              "value": "admin"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getbyid",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3NjUzODIwNiwiZXhwIjoxNzc2NTQxODA2fQ.GFP_smsu5cdt__14MFyGZKOLzGhWSVUio3hWwo5Q-HHfvUgV8QXP__l5Hdb5Z_os"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/users/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get users",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3NjUzODIwNiwiZXhwIjoxNzc2NTQxODA2fQ.GFP_smsu5cdt__14MFyGZKOLzGhWSVUio3hWwo5Q-HHfvUgV8QXP__l5Hdb5Z_os"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "save - sincronizar usuarios",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc3NjUzODIwNiwiZXhwIjoxNzc2NTQxODA2fQ.GFP_smsu5cdt__14MFyGZKOLzGhWSVUio3hWwo5Q-HHfvUgV8QXP__l5Hdb5Z_os"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/users/sync",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users",
+            "sync"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
